@@ -1,0 +1,34 @@
+tap "caskroom/cask"
+
+#Terminal
+cask "iterm2"
+
+#Editor
+cask "atom"
+cask "visual-studio-code"
+
+#Browsers
+cask "google-chrome"
+cask "firefox"
+
+#Messaging
+cask "slack"
+cask "skype"
+
+#Tools/Utilities/Others
+cask "postman"
+cask "evernote"
+cask "adobe-acrobat-reader"
+
+#Languages
+brew "python3"
+
+#Shells
+brew "fish"
+
+#Tools
+brew "curl"
+brew "wget"
+brew "git-flow"
+brew "pre-commit"
+brew "mysql"
