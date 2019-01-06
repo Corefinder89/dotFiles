@@ -29,6 +29,7 @@ echo ">> Install virtual environment"
 pip install --user --upgrade virtualenv
 
 # Configure mySQL
+echo ">> Start mySQL services"
 brew tap homebrew/services
 brew services start mysql
 brew link mysql --force
