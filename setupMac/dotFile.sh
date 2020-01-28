@@ -48,55 +48,55 @@ brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Librar
 #Default shell
 SHELL_VAL=`echo ${SHELL}`
 
+# Create shell configuration file based on default system shell
 env_config () {
-  # Check for default shell and creast shell config file
   if [ $SHELL_VAL = '/bin/zsh' ]
   then
       touch .zshrc
-      echo ".zshrc file created"
+      echo ">>.zshrc file created"
   elif [ $SHELL_VAL = '/bin/bash' ]
   then
       touch .bash_profile
-      echo ".bash_profile file created"
+      echo ">>.bash_profile file created"
   else
-    echo "Condition not evaluated"
+    echo ">>Valid shell not present"
   fi
 }
 
 bash_sshpass () {
   echo "alias $alias_val='sshpass -p $password ssh $ip_add'" >> .bash_profile
-  echo "sshpass configuration done for .bash_profile"
+  echo ">>sshpass configuration done for .bash_profile"
 }
 
 zsh_sshpass () {
   echo "alias $alias_val='sshpass -p $password ssh $ip_add'" >> .zshrc
-  echo "sshpass configuration done for .zshrc"
+  echo ">>sshpass configuration done for .zshrc"
 }
 
 echo "Configure sshpass? (Y/N) "
 read option
-if [ $option = 'Y' ]
+if [ $option = "Y" ]
 then
-  echo "Enter password: "
+  echo "Enter user password: "
   read password
-  echo "Enter ip address: "
+  echo "Enter ssh address: "
   read ip_add
-  echo "Enter alias value: "
+  echo "Enter alias value to be set in shell config file: "
   read alias_val
-  if [ $SHELL_VAL = '/bin/zsh' ]
+  if [ $SHELL_VAL = "/bin/zsh" ]
   then
     env_config
     zsh_sshpass
   fi
-  if [ $SHELL_VAL = '/bin/bash' ]
+  if [ $SHELL_VAL = "/bin/bash" ]
   then
     env_config
     bash_sshpass
   fi
-elif [ $option = 'N' ]
+elif [ $option = "N" ]
 then
-  echo "Skipping sshpass configuration"
+  echo ">>Skipping sshpass configuration and setting up shell configuration file"
   env_config
 else
-  echo "Invalid option"
+  echo ">>Invalid option"
 fi
