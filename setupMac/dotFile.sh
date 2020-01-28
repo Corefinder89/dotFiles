@@ -106,3 +106,9 @@ then
 else
   echo ">>Invalid option"
 fi
+
+# Update Brew
+brew update
+
+# Upgrade Brew
+brew upgrade
