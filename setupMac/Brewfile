@@ -29,6 +29,5 @@ brew "fish"
 #Tools
 brew "curl"
 brew "wget"
-brew "git-flow"
-brew "pre-commit"
+brew "git"
 brew "mysql"

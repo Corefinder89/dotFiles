@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Get the source directory
 SOURCE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -34,3 +32,71 @@ brew tap homebrew/services
 brew services start mysql
 brew link mysql --force
 mysql -V
+
+# Configure vim environment
+echo ">> Configuring vim environment"
+git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
+
+# Update vim plugins
+git pull --rebase
+python update_plugins.py
+
+# Install sshpass
+brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
+
+#Default shell
+SHELL_VAL=`echo ${SHELL}`
+
+env_config () {
+  # Check for default shell and creast shell config file
+  if [ $SHELL_VAL = '/bin/zsh' ]
+  then
+      touch .zshrc
+      echo ".zshrc file created"
+  elif [ $SHELL_VAL = '/bin/bash' ]
+  then
+      touch .bash_profile
+      echo ".bash_profile file created"
+  else
+    echo "Condition not evaluated"
+  fi
+}
+
+bash_sshpass () {
+  echo "alias $alias_val='sshpass -p $password ssh $ip_add'" >> .bash_profile
+  echo "sshpass configuration done for .bash_profile"
+}
+
+zsh_sshpass () {
+  echo "alias $alias_val='sshpass -p $password ssh $ip_add'" >> .zshrc
+  echo "sshpass configuration done for .zshrc"
+}
+
+echo "Configure sshpass? (Y/N) "
+read option
+if [ $option = 'Y' ]
+then
+  echo "Enter password: "
+  read password
+  echo "Enter ip address: "
+  read ip_add
+  echo "Enter alias value: "
+  read alias_val
+  if [ $SHELL_VAL = '/bin/zsh' ]
+  then
+    env_config
+    zsh_sshpass
+  fi
+  if [ $SHELL_VAL = '/bin/bash' ]
+  then
+    env_config
+    bash_sshpass
+  fi
+elif [ $option = 'N' ]
+then
+  echo "Skipping sshpass configuration"
+  env_config
+else
+  echo "Invalid option"
+fi
