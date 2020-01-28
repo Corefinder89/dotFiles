@@ -42,10 +42,16 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 git pull --rebase
 python update_plugins.py
 
+# Install aws-cli
+curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-macos.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+which aws2
+
 # Install sshpass
 brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
 
-#Default shell
+# Default shell
 SHELL_VAL=`echo ${SHELL}`
 
 # Create shell configuration file based on default system shell

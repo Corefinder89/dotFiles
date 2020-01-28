@@ -20,6 +20,9 @@ cask "postman"
 cask "evernote"
 cask "adobe-acrobat-reader"
 
+#Container
+cask "docker"
+
 #Languages
 brew "python3"
 
