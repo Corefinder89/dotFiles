@@ -59,24 +59,24 @@ env_config () {
   if [ $SHELL_VAL = '/bin/zsh' ]
   then
       touch .zshrc
-      echo ">>.zshrc file created"
+      echo ">> .zshrc file created"
   elif [ $SHELL_VAL = '/bin/bash' ]
   then
       touch .bash_profile
-      echo ">>.bash_profile file created"
+      echo ">> .bash_profile file created"
   else
-    echo ">>Valid shell not present"
+    echo ">> Valid shell not present"
   fi
 }
 
 bash_sshpass () {
   echo "alias $alias_val='sshpass -p $password ssh $ip_add'" >> .bash_profile
-  echo ">>sshpass configuration done for .bash_profile"
+  echo ">> sshpass configuration done for .bash_profile"
 }
 
 zsh_sshpass () {
   echo "alias $alias_val='sshpass -p $password ssh $ip_add'" >> .zshrc
-  echo ">>sshpass configuration done for .zshrc"
+  echo ">> sshpass configuration done for .zshrc"
 }
 
 echo "Configure sshpass? (Y/N) "
@@ -101,10 +101,10 @@ then
   fi
 elif [ $option = "N" ]
 then
-  echo ">>Skipping sshpass configuration and setting up shell configuration file"
+  echo ">> Skipping sshpass configuration and setting up shell configuration file"
   env_config
 else
-  echo ">>Invalid option"
+  echo ">> Invalid option"
 fi
 
 # Update Brew and upgrade packages
