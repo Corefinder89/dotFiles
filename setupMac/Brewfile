@@ -17,6 +17,7 @@ cask "skype"
 
 #Tools/Utilities/Others
 cask "postman"
+cask "insomnia"
 cask "evernote"
 cask "adobe-acrobat-reader"
 
@@ -33,4 +34,3 @@ brew "fish"
 brew "curl"
 brew "wget"
 brew "git"
-brew "mysql"

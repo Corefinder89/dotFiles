@@ -14,9 +14,9 @@ echo ">> Installing brew dependencies"
 brew bundle --file="$SOURCE_DIR/Brewfile"
 
 # Install oh my fish
-echo ">> Install oh my fish"
-curl -L https://get.oh-my.fish > install
-fish install --path=~/.local/share/omf --config=~/.config/fish/omf
+# echo ">> Install oh my fish"
+# curl -L https://get.oh-my.fish > install
+# fish install --path=~/.local/share/omf --config=~/.config/fish/omf
 
 # Upgrade pip
 echo ">> Upgrading pip version"
@@ -27,20 +27,20 @@ echo ">> Install virtual environment"
 pip install --user --upgrade virtualenv
 
 # Configure mySQL
-echo ">> Start mySQL services"
-brew tap homebrew/services
-brew services start mysql
-brew link mysql --force
-mysql -V
+# echo ">> Start mySQL services"
+# brew tap homebrew/services
+# brew services start mysql
+# brew link mysql --force
+# mysql -V
 
 # Configure vim environment
-echo ">> Configuring vim environment"
-git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
-sh ~/.vim_runtime/install_awesome_vimrc.sh
+# echo ">> Configuring vim environment"
+# git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+# sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 # Update vim plugins
-git pull --rebase
-python update_plugins.py
+# git pull --rebase
+# python update_plugins.py
 
 # Install aws-cli
 curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-macos.zip" -o "awscliv2.zip"
