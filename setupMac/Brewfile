@@ -3,9 +3,12 @@ tap "caskroom/cask"
 #Terminal
 cask "iterm2"
 
-#Editor
+#IDE
 cask "atom"
 cask "visual-studio-code"
+cask "pycharm-ce"
+cask "sublime-merge"
+cask "intellij-idea"
 
 #Browsers
 cask "google-chrome"
@@ -13,7 +16,8 @@ cask "firefox"
 
 #Messaging
 cask "slack"
-cask "skype"
+cask "keybase"
+# cask "skype"
 
 #Tools/Utilities/Others
 cask "postman"
@@ -24,11 +28,20 @@ cask "adobe-acrobat-reader"
 #Container
 cask "docker"
 
+#PDF Reader
+cask "adobe-acrobat-reader"
+
+#Virtual connect
+cask "zoom"
+
+#Draw
+cask "drawio"
+
 #Languages
 brew "python3"
 
 #Shells
-brew "fish"
+# brew "fish"
 
 #Tools
 brew "curl"
